@@ -17,10 +17,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8gS-5d-F2p">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8gS-5d-F2p">
                                 <rect key="frame" x="36" y="785" width="343" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.95686274509803915" green="0.0" blue="0.0" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="5b8-zJ-U4Y"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Перейти в каталог">
                                     <fontDescription key="titleFontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
@@ -32,7 +34,12 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fEa-yW-7x3"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="fEa-yW-7x3" firstAttribute="bottom" secondItem="8gS-5d-F2p" secondAttribute="bottom" constant="29" id="CMP-ot-uV3"/>
+                            <constraint firstItem="8gS-5d-F2p" firstAttribute="leading" secondItem="fEa-yW-7x3" secondAttribute="leading" constant="36" id="FvP-Kj-Uhp"/>
+                            <constraint firstItem="fEa-yW-7x3" firstAttribute="trailing" secondItem="8gS-5d-F2p" secondAttribute="trailing" constant="35" id="oeP-YC-RtI"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Главная" id="2zi-aN-PkY">
                         <barButtonItem key="backBarButtonItem" title=" " id="At9-ec-bg8"/>
@@ -51,7 +58,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DaW-Lu-bvV">
-                                <rect key="frame" x="0.0" y="184" width="414" height="678"/>
+                                <rect key="frame" x="15" y="212" width="384" height="650"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="YuJ-Sk-j5M">
                                     <size key="itemSize" width="128" height="128"/>
@@ -60,7 +67,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="flf-OF-MYj">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ItemCollectionViewCell" id="flf-OF-MYj">
                                         <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="fMD-3p-3ml">
@@ -70,14 +77,85 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="mpT-U1-wRJ">
+                                <rect key="frame" x="0.0" y="44" width="414" height="168"/>
+                                <subviews>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="filter" rowHeight="11" id="S7s-eB-rsp" userLabel="filters">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="84"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="S7s-eB-rsp" id="vgv-cX-DHP">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="84"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zhy-db-LdP">
+                                                    <rect key="frame" x="10" y="50" width="136" height="34"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="Zhy-db-LdP" secondAttribute="height" multiplier="4:1" id="zy4-Sy-awq"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" image="filters" title=" Фильтры (12)">
+                                                        <fontDescription key="titleFontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                                        <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </buttonConfiguration>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pFw-OJ-4RR">
+                                                    <rect key="frame" x="187" y="50" width="187" height="34"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="pFw-OJ-4RR" secondAttribute="height" multiplier="11:2" id="j5H-LD-9kj"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" image="sorting" title=" Сначала популярные">
+                                                        <fontDescription key="titleFontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                                        <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </buttonConfiguration>
+                                                </button>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="drop" translatesAutoresizingMaskIntoConstraints="NO" id="NhK-O8-Ff5">
+                                                    <rect key="frame" x="378" y="58" width="18" height="18"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="18" id="9vG-1n-upW"/>
+                                                        <constraint firstAttribute="width" constant="18" id="dLE-FR-LQY"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="Zhy-db-LdP" secondAttribute="bottom" id="5Qs-Mt-cAF"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="NhK-O8-Ff5" secondAttribute="trailing" constant="10" id="AgK-0b-kLj"/>
+                                                <constraint firstItem="Zhy-db-LdP" firstAttribute="top" secondItem="vgv-cX-DHP" secondAttribute="top" constant="50" id="FEY-cO-qLX"/>
+                                                <constraint firstAttribute="bottom" secondItem="pFw-OJ-4RR" secondAttribute="bottom" id="K8J-xK-6K6"/>
+                                                <constraint firstItem="NhK-O8-Ff5" firstAttribute="centerY" secondItem="pFw-OJ-4RR" secondAttribute="centerY" id="Mcn-Gl-Nzb"/>
+                                                <constraint firstItem="Zhy-db-LdP" firstAttribute="leading" secondItem="vgv-cX-DHP" secondAttribute="leading" constant="10" id="jIY-sr-YIC"/>
+                                                <constraint firstItem="pFw-OJ-4RR" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Zhy-db-LdP" secondAttribute="trailing" constant="10" id="jwm-kL-ZHs"/>
+                                                <constraint firstItem="NhK-O8-Ff5" firstAttribute="leading" secondItem="pFw-OJ-4RR" secondAttribute="trailing" constant="4" id="tT7-78-cqP"/>
+                                                <constraint firstItem="pFw-OJ-4RR" firstAttribute="top" secondItem="vgv-cX-DHP" secondAttribute="top" constant="50" id="wcN-SO-oep"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="catgoeires" rowHeight="73" id="a2A-5N-8BF">
+                                        <rect key="frame" x="0.0" y="84" width="414" height="84"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="a2A-5N-8BF" id="tVI-FC-RAR">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="84"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                                    </tableViewCell>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="DaW-Lu-bvV" secondAttribute="bottom" id="CvE-2w-nbL"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="DaW-Lu-bvV" secondAttribute="trailing" id="F1g-cV-wK5"/>
-                            <constraint firstItem="DaW-Lu-bvV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="NX0-Jq-5sy"/>
-                            <constraint firstItem="DaW-Lu-bvV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="96" id="jnU-87-ojl"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="DaW-Lu-bvV" secondAttribute="trailing" constant="15" id="F1g-cV-wK5"/>
+                            <constraint firstItem="DaW-Lu-bvV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="NX0-Jq-5sy"/>
+                            <constraint firstItem="DaW-Lu-bvV" firstAttribute="top" secondItem="mpT-U1-wRJ" secondAttribute="bottom" id="PXM-gf-bsl"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mpT-U1-wRJ" secondAttribute="trailing" id="VDH-WM-xeh"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="mpT-U1-wRJ" secondAttribute="top" constant="44" id="ayK-01-oCJ"/>
+                            <constraint firstItem="DaW-Lu-bvV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="124" id="jnU-87-ojl"/>
+                            <constraint firstItem="mpT-U1-wRJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="rLQ-sl-hLw"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Угловые диваны" id="YNw-Ey-yYC"/>
@@ -87,21 +165,31 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="944.92753623188412" y="83.705357142857139"/>
+            <point key="canvasLocation" x="957.97101449275374" y="134.59821428571428"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="KiC-IO-CoU">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="oBm-v0-vgi" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" clipsSubviews="YES" contentMode="scaleToFill" id="3T6-rM-kpM">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3T6-rM-kpM">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="titleTextAttributes">
+                            <offsetWrapper key="textShadowOffset" horizontal="0.0" vertical="0.0"/>
+                        </textAttributes>
+                        <navigationBarAppearance key="standardAppearance">
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="shadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                        </navigationBarAppearance>
                         <navigationBarAppearance key="scrollEdgeAppearance">
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="shadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </navigationBarAppearance>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -115,6 +203,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="drop" width="36" height="36"/>
+        <image name="filters" width="20" height="20"/>
+        <image name="sorting" width="20" height="20"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -16,7 +16,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var nameLBL: UILabel!
     @IBOutlet weak var statusLbl: UILabel!
-    @IBOutlet weak var tagLbl: UILabel! // ????
+    @IBOutlet weak var tagLbl: UILabel! 
     @IBOutlet weak var oldPrice: UILabel!
     @IBOutlet weak var newPrice: UILabel!
     @IBOutlet weak var specialOffer: UILabel!
@@ -34,9 +34,29 @@ class ItemCollectionViewCell: UICollectionViewCell {
         self.ratingView.text = "(\(item.numberOfReviews))"
         self.nameLBL.text = item.name
         self.statusLbl.text = item.statusText
+       
+        // old and new price. TODO: format price with spacing and add to cross out old price
         self.newPrice.text = "\(item.prices.new) ₽"
-        self.oldPrice.text = "\(item.prices.old) ₽" // отформатировать и добавить черточку
+        if item.prices.old == item.prices.new {
+            self.oldPrice.text = ""
+        } else {
+        self.oldPrice.text = "\(item.prices.old) ₽"
+        }
+        // best price and discount
+        if item.isBestPrice {
+            self.specialOffer.text = "  Лучшая цена  "
+            self.specialOffer.backgroundColor = #colorLiteral(red: 0.9917286038, green: 0.7743743062, blue: 0, alpha: 1)
+            self.specialOffer.textColor = .white
+        } else if item.discount != 0 {
+            self.specialOffer.text = "  -\(item.discount) %  "
+            self.specialOffer.backgroundColor = #colorLiteral(red: 0.9568627451, green: 0, blue: 0, alpha: 1)
+            self.specialOffer.textColor = .white
+    
+        } else {
+            self.specialOffer.text = ""
+        }
         
+        // image downloading
         itemImage.sd_setImage(with: URL(string: item.image),
                               placeholderImage: UIImage(systemName: "photo"),
                               options: .continueInBackground,

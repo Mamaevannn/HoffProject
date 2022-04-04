@@ -37,7 +37,7 @@ class CatalogViewController: UIViewController {
     private func setupView() {
 //        presenter = Presenter(view: self as ViewControllerInput)
 //         presenter?.loadCatalog()
-        service.getData(categoryId: "320", sortBy: "price", sortType: "desc", limit: "100", offset: "0")
+        service.getData(categoryId: "320", sortBy: "price", sortType: "asc", limit: "100", offset: "0")
         service.completionHandler { [weak self] (items, status, message) in
             if status {
                 guard let self = self else {return}

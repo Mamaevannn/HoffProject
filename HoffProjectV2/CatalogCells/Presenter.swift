@@ -13,7 +13,7 @@ var view: ViewControllerInput?
         self.view = view
     }
     
-    let service = NetworkService()
+//    let service = NetworkService()
     
 //    func loadCatalog() {
 //        
