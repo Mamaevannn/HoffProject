@@ -21,6 +21,8 @@
 		ACDFFEF927F8AB71004F5703 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = ACDFFEF827F8AB71004F5703 /* SDWebImage */; };
 		ACDFFEFB27F9A534004F5703 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDFFEFA27F9A534004F5703 /* Presenter.swift */; };
 		ACDFFEFE27FA277D004F5703 /* Cosmos in Frameworks */ = {isa = PBXBuildFile; productRef = ACDFFEFD27FA277D004F5703 /* Cosmos */; };
+		ACDFFF0027FB984B004F5703 /* FiltersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDFFEFF27FB984B004F5703 /* FiltersTableViewCell.swift */; };
+		ACDFFF0327FC8E61004F5703 /* Sorting options.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDFFF0227FC8E61004F5703 /* Sorting options.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +39,8 @@
 		ACDFFEEE27F8A78E004F5703 /* CatalogModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogModel.swift; sourceTree = "<group>"; };
 		ACDFFEF127F8A7BA004F5703 /* Network Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Network Service.swift"; sourceTree = "<group>"; };
 		ACDFFEFA27F9A534004F5703 /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
+		ACDFFEFF27FB984B004F5703 /* FiltersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersTableViewCell.swift; sourceTree = "<group>"; };
+		ACDFFF0227FC8E61004F5703 /* Sorting options.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sorting options.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +80,7 @@
 				ACDFFED327F8A3D9004F5703 /* AppDelegate.swift */,
 				ACDFFED527F8A3D9004F5703 /* SceneDelegate.swift */,
 				ACDFFED927F8A3D9004F5703 /* Main.storyboard */,
+				ACDFFF0127FB985A004F5703 /* FiltersVell */,
 				ACDFFEE727F8A412004F5703 /* CatalogViewController.swift */,
 				ACDFFEF027F8A792004F5703 /* Model */,
 				ACDFFEF327F8A7BE004F5703 /* Network */,
@@ -100,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				ACDFFEEE27F8A78E004F5703 /* CatalogModel.swift */,
+				ACDFFF0227FC8E61004F5703 /* Sorting options.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -110,6 +116,14 @@
 				ACDFFEF127F8A7BA004F5703 /* Network Service.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		ACDFFF0127FB985A004F5703 /* FiltersVell */ = {
+			isa = PBXGroup;
+			children = (
+				ACDFFEFF27FB984B004F5703 /* FiltersTableViewCell.swift */,
+			);
+			path = FiltersVell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,7 +209,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACDFFEE827F8A412004F5703 /* CatalogViewController.swift in Sources */,
+				ACDFFF0027FB984B004F5703 /* FiltersTableViewCell.swift in Sources */,
 				ACDFFEFB27F9A534004F5703 /* Presenter.swift in Sources */,
+				ACDFFF0327FC8E61004F5703 /* Sorting options.swift in Sources */,
 				ACDFFEEC27F8A504004F5703 /* ItemCollectionViewCell.swift in Sources */,
 				ACDFFED427F8A3D9004F5703 /* AppDelegate.swift in Sources */,
 				ACDFFEF227F8A7BA004F5703 /* Network Service.swift in Sources */,

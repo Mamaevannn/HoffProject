@@ -58,7 +58,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DaW-Lu-bvV">
-                                <rect key="frame" x="15" y="212" width="384" height="650"/>
+                                <rect key="frame" x="15" y="212" width="384" height="601"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="YuJ-Sk-j5M">
                                     <size key="itemSize" width="128" height="128"/>
@@ -80,7 +80,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="mpT-U1-wRJ">
                                 <rect key="frame" x="0.0" y="44" width="414" height="168"/>
                                 <subviews>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="filter" rowHeight="11" id="S7s-eB-rsp" userLabel="filters">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="filter" rowHeight="11" id="S7s-eB-rsp" userLabel="filters" customClass="FiltersTableViewCell" customModule="HoffProjectV2" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="84"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="S7s-eB-rsp" id="vgv-cX-DHP">
@@ -101,13 +101,16 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pFw-OJ-4RR">
                                                     <rect key="frame" x="187" y="50" width="187" height="34"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" secondItem="pFw-OJ-4RR" secondAttribute="height" multiplier="11:2" id="j5H-LD-9kj"/>
+                                                        <constraint firstAttribute="width" secondItem="pFw-OJ-4RR" secondAttribute="height" multiplier="11:2" id="2tq-i7-DpQ"/>
                                                     </constraints>
                                                     <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain" image="sorting" title=" Сначала популярные">
+                                                    <buttonConfiguration key="configuration" style="plain" image="sorting" title="По популярности">
                                                         <fontDescription key="titleFontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                                         <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </buttonConfiguration>
+                                                    <connections>
+                                                        <action selector="didTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pmh-Xe-0TY"/>
+                                                    </connections>
                                                 </button>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="drop" translatesAutoresizingMaskIntoConstraints="NO" id="NhK-O8-Ff5">
                                                     <rect key="frame" x="378" y="58" width="18" height="18"/>
@@ -124,7 +127,7 @@
                                                 <constraint firstAttribute="bottom" secondItem="pFw-OJ-4RR" secondAttribute="bottom" id="K8J-xK-6K6"/>
                                                 <constraint firstItem="NhK-O8-Ff5" firstAttribute="centerY" secondItem="pFw-OJ-4RR" secondAttribute="centerY" id="Mcn-Gl-Nzb"/>
                                                 <constraint firstItem="Zhy-db-LdP" firstAttribute="leading" secondItem="vgv-cX-DHP" secondAttribute="leading" constant="10" id="jIY-sr-YIC"/>
-                                                <constraint firstItem="pFw-OJ-4RR" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Zhy-db-LdP" secondAttribute="trailing" constant="10" id="jwm-kL-ZHs"/>
+                                                <constraint firstItem="pFw-OJ-4RR" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Zhy-db-LdP" secondAttribute="trailing" constant="5" id="jwm-kL-ZHs"/>
                                                 <constraint firstItem="NhK-O8-Ff5" firstAttribute="leading" secondItem="pFw-OJ-4RR" secondAttribute="trailing" constant="4" id="tT7-78-cqP"/>
                                                 <constraint firstItem="pFw-OJ-4RR" firstAttribute="top" secondItem="vgv-cX-DHP" secondAttribute="top" constant="50" id="wcN-SO-oep"/>
                                             </constraints>
@@ -158,9 +161,12 @@
                             <constraint firstItem="mpT-U1-wRJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="rLQ-sl-hLw"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Угловые диваны" id="YNw-Ey-yYC"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="DaW-Lu-bvV" id="5Z0-7J-uqL"/>
+                        <outlet property="sortButton" destination="pFw-OJ-4RR" id="oYl-Wb-3IS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

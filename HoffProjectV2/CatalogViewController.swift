@@ -23,7 +23,7 @@ class CatalogViewController: UIViewController {
         self.collectionView.register(UINib(nibName: "ItemCollectionViewCell", bundle: nibBundle), forCellWithReuseIdentifier: "ItemCollectionViewCell")
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
-        setupView()
+        sortByPopular()
         
     }
     
@@ -34,10 +34,10 @@ class CatalogViewController: UIViewController {
 
     }
     
-    private func setupView() {
+    private func sortByPopular() {
 //        presenter = Presenter(view: self as ViewControllerInput)
 //         presenter?.loadCatalog()
-        service.getData(categoryId: "320", sortBy: "price", sortType: "asc", limit: "100", offset: "0")
+        service.getData(categoryId: "320", sortBy: "price", sortType: "asc", limit: "20", offset: "0")
         service.completionHandler { [weak self] (items, status, message) in
             if status {
                 guard let self = self else {return}
@@ -47,6 +47,80 @@ class CatalogViewController: UIViewController {
             }
         }
      }
+    
+    private func sortByPriceAsc() {
+
+        service.getData(categoryId: "320", sortBy: "price", sortType: "asc", limit: "20", offset: "0")
+        service.completionHandler { [weak self] (items, status, message) in
+            if status {
+                guard let self = self else {return}
+                guard let _items = items?.items else {return}
+            self.catalogItem = _items
+                self.collectionView.reloadData()
+            }
+        }
+     }
+    
+    private func sortByPriceDesc() {
+
+        service.getData(categoryId: "320", sortBy: "price", sortType: "desc", limit: "100", offset: "0")
+        service.completionHandler { [weak self] (items, status, message) in
+            if status {
+                guard let self = self else {return}
+                guard let _items = items?.items else {return}
+            self.catalogItem = _items
+                self.collectionView.reloadData()
+            }
+        }
+     }
+    
+    private func sortByDiscount() {
+
+        service.getData(categoryId: "320", sortBy: "discount", sortType: "desc", limit: "20", offset: "0")
+        service.completionHandler { [weak self] (items, status, message) in
+            if status {
+                guard let self = self else {return}
+                guard let _items = items?.items else {return}
+            self.catalogItem = _items
+                self.collectionView.reloadData()
+            }
+        }
+     }
+    
+    
+    @IBOutlet weak var sortButton: UIButton!
+    @IBAction func didTap(_ sender: UIButton) {
+        showSortOptions()
+    }
+    
+    func showSortOptions() {
+        let actionSheet = UIAlertController(title: .none, message: .none, preferredStyle: .actionSheet)
+        actionSheet.addAction(UIAlertAction(title: "По популярности", style: .default, handler: { action in
+            self.sortButton.titleLabel?.text = "По популярности"
+            self.sortByPopular()
+        }))
+        actionSheet.addAction(UIAlertAction(title: "По возрастанию цены", style: .default, handler: { action in
+            // insert action
+            self.sortButton.titleLabel?.text = "По возрастанию цены"
+            self.sortByPriceAsc()
+        }))
+        actionSheet.addAction(UIAlertAction(title: "По убыванию цены", style: .default, handler: { action in
+            // insert action
+            self.sortButton.titleLabel?.text = "По убыванию цены"
+            self.sortByPriceDesc()
+        }))
+        actionSheet.addAction(UIAlertAction(title: "По скидкам", style: .default, handler: { action in
+            // insert action
+            self.sortButton.titleLabel?.text = "По скидкам"
+            self.sortByDiscount()
+        }))
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { action in
+           
+        }))
+        present(actionSheet, animated: true)
+    }
+    
+   
 }
 
 extension CatalogViewController: UICollectionViewDataSource,  UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {

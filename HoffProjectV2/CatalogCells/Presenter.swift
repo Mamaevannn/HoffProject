@@ -25,16 +25,7 @@ var view: ViewControllerInput?
 //    }
 }
 
-enum SortBy: String {
-    case price = "price"
-    case popular = "popular"
-    case discount = "discount"
-}
 
-enum SortType: String {
-    case asc = "asc" // по возрастанию
-    case desc = "desc" // по убыванию
-}
 
 protocol ViewControllerInput {
     func succesObtainProducts(products: Catalog)

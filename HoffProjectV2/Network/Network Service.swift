@@ -16,7 +16,7 @@ class NetworkService {
     typealias itemCallBack = (_ items: Catalog?, _ status: Bool, _ message: String) -> Void
     var callBack: itemCallBack?
     
-     func getData(categoryId: String, sortBy: String, sortType: String, limit: String, offset: String) {
+     func getData(categoryId: String = "320", sortBy: String = "popular", sortType: String = "desc", limit: String = "20", offset: String = "0") {
 
        var urlComponents = URLComponents()
        urlComponents.scheme = "https"
