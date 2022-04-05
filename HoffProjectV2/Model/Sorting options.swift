@@ -7,6 +7,11 @@
 
 import Foundation
 
+protocol CatalofProtocol: AnyObject {
+    var sortBy: SortBy { get set}
+    var sortType: SortType {get set}
+}
+
 
 enum SortBy: String {
     case price = "price"

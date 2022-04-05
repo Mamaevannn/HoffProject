@@ -13,31 +13,26 @@ class CatalogViewController: UIViewController {
     
     var presenter: Presenter?
     var catalogItem: [Catalog.Items] = []
-   
-
     let service = NetworkService()
     var catalog: Catalog?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         self.collectionView.register(UINib(nibName: "ItemCollectionViewCell", bundle: nibBundle), forCellWithReuseIdentifier: "ItemCollectionViewCell")
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
-        sortByPopular()
-        
+        setupView()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         self.view.backgroundColor = UIColor(red: 0.898, green: 0.898, blue: 0.898, alpha: 1)
         self.collectionView.backgroundColor = UIColor(red: 0.898, green: 0.898, blue: 0.898, alpha: 1)
-
     }
     
-    private func sortByPopular() {
-//        presenter = Presenter(view: self as ViewControllerInput)
-//         presenter?.loadCatalog()
-        service.getData(categoryId: "320", sortBy: "price", sortType: "asc", limit: "20", offset: "0")
+    func setupView() {
+        service.getData(sortBy: "popular", sortType: "desc")
         service.completionHandler { [weak self] (items, status, message) in
             if status {
                 guard let self = self else {return}
@@ -46,83 +41,43 @@ class CatalogViewController: UIViewController {
                 self.collectionView.reloadData()
             }
         }
-     }
-    
-    private func sortByPriceAsc() {
+    }
 
-        service.getData(categoryId: "320", sortBy: "price", sortType: "asc", limit: "20", offset: "0")
-        service.completionHandler { [weak self] (items, status, message) in
-            if status {
-                guard let self = self else {return}
-                guard let _items = items?.items else {return}
-            self.catalogItem = _items
-                self.collectionView.reloadData()
-            }
-        }
-     }
-    
-    private func sortByPriceDesc() {
-
-        service.getData(categoryId: "320", sortBy: "price", sortType: "desc", limit: "100", offset: "0")
-        service.completionHandler { [weak self] (items, status, message) in
-            if status {
-                guard let self = self else {return}
-                guard let _items = items?.items else {return}
-            self.catalogItem = _items
-                self.collectionView.reloadData()
-            }
-        }
-     }
-    
-    private func sortByDiscount() {
-
-        service.getData(categoryId: "320", sortBy: "discount", sortType: "desc", limit: "20", offset: "0")
-        service.completionHandler { [weak self] (items, status, message) in
-            if status {
-                guard let self = self else {return}
-                guard let _items = items?.items else {return}
-            self.catalogItem = _items
-                self.collectionView.reloadData()
-            }
-        }
-     }
-    
-    
+    // MARK: sorting options
     @IBOutlet weak var sortButton: UIButton!
     @IBAction func didTap(_ sender: UIButton) {
         showSortOptions()
     }
-    
+
     func showSortOptions() {
         let actionSheet = UIAlertController(title: .none, message: .none, preferredStyle: .actionSheet)
         actionSheet.addAction(UIAlertAction(title: "По популярности", style: .default, handler: { action in
             self.sortButton.titleLabel?.text = "По популярности"
-            self.sortByPopular()
+            self.service.getData(sortBy: "popular", sortType: "desc")
         }))
         actionSheet.addAction(UIAlertAction(title: "По возрастанию цены", style: .default, handler: { action in
             // insert action
             self.sortButton.titleLabel?.text = "По возрастанию цены"
-            self.sortByPriceAsc()
+            self.service.getData(sortBy: "price", sortType: "asc")
         }))
         actionSheet.addAction(UIAlertAction(title: "По убыванию цены", style: .default, handler: { action in
             // insert action
             self.sortButton.titleLabel?.text = "По убыванию цены"
-            self.sortByPriceDesc()
+            self.service.getData( sortBy: "price", sortType: "desc")
         }))
         actionSheet.addAction(UIAlertAction(title: "По скидкам", style: .default, handler: { action in
             // insert action
             self.sortButton.titleLabel?.text = "По скидкам"
-            self.sortByDiscount()
+            self.service.getData(sortBy: "discount", sortType: "desc")
         }))
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { action in
-           
         }))
         present(actionSheet, animated: true)
     }
-    
-   
 }
 
+
+// MARK: delegate, datasource, delegateFlowLayout
 extension CatalogViewController: UICollectionViewDataSource,  UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
