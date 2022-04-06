@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC11D7E227FD7E0800251CD0 /* CollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC11D7E027FD7E0800251CD0 /* CollectionReusableView.swift */; };
+		AC11D7E327FD7E0800251CD0 /* CollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC11D7E127FD7E0800251CD0 /* CollectionReusableView.xib */; };
 		ACDFFED427F8A3D9004F5703 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDFFED327F8A3D9004F5703 /* AppDelegate.swift */; };
 		ACDFFED627F8A3D9004F5703 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDFFED527F8A3D9004F5703 /* SceneDelegate.swift */; };
 		ACDFFEDB27F8A3D9004F5703 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACDFFED927F8A3D9004F5703 /* Main.storyboard */; };
@@ -26,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AC11D7E027FD7E0800251CD0 /* CollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionReusableView.swift; sourceTree = "<group>"; };
+		AC11D7E127FD7E0800251CD0 /* CollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionReusableView.xib; sourceTree = "<group>"; };
 		ACDFFED027F8A3D9004F5703 /* HoffProjectV2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HoffProjectV2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACDFFED327F8A3D9004F5703 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACDFFED527F8A3D9004F5703 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +91,8 @@
 				ACDFFEDC27F8A3DA004F5703 /* Assets.xcassets */,
 				ACDFFEDE27F8A3DA004F5703 /* LaunchScreen.storyboard */,
 				ACDFFEE127F8A3DA004F5703 /* Info.plist */,
+				AC11D7E027FD7E0800251CD0 /* CollectionReusableView.swift */,
+				AC11D7E127FD7E0800251CD0 /* CollectionReusableView.xib */,
 			);
 			path = HoffProjectV2;
 			sourceTree = "<group>";
@@ -194,6 +200,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC11D7E327FD7E0800251CD0 /* CollectionReusableView.xib in Resources */,
 				ACDFFEE027F8A3DA004F5703 /* LaunchScreen.storyboard in Resources */,
 				ACDFFEED27F8A504004F5703 /* ItemCollectionViewCell.xib in Resources */,
 				ACDFFEDD27F8A3DA004F5703 /* Assets.xcassets in Resources */,
@@ -211,6 +218,7 @@
 				ACDFFEE827F8A412004F5703 /* CatalogViewController.swift in Sources */,
 				ACDFFF0027FB984B004F5703 /* FiltersTableViewCell.swift in Sources */,
 				ACDFFEFB27F9A534004F5703 /* Presenter.swift in Sources */,
+				AC11D7E227FD7E0800251CD0 /* CollectionReusableView.swift in Sources */,
 				ACDFFF0327FC8E61004F5703 /* Sorting options.swift in Sources */,
 				ACDFFEEC27F8A504004F5703 /* ItemCollectionViewCell.swift in Sources */,
 				ACDFFED427F8A3D9004F5703 /* AppDelegate.swift in Sources */,

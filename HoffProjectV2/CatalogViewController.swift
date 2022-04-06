@@ -15,14 +15,25 @@ class CatalogViewController: UIViewController {
     var catalogItem: [Catalog.Items] = []
     let service = NetworkService()
     var catalog: Catalog?
+    var offset = 0
+    var limit = 20
+    var pageNumber = 0
+    var isLoading = false
+    var didEndReached = false
+    var loadingView: CollectionReusableView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        // register cell
         self.collectionView.register(UINib(nibName: "ItemCollectionViewCell", bundle: nibBundle), forCellWithReuseIdentifier: "ItemCollectionViewCell")
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
         setupView()
+        
+        // register activityIndicator
+        let loadingReusableNib = UINib(nibName: "CollectionReusableView", bundle: nil)
+        self.collectionView.register(loadingReusableNib, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "loadingresuableviewid")
     }
     
     override func viewDidLayoutSubviews() {
@@ -78,7 +89,7 @@ class CatalogViewController: UIViewController {
 
 
 // MARK: delegate, datasource, delegateFlowLayout
-extension CatalogViewController: UICollectionViewDataSource,  UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+extension CatalogViewController: UICollectionViewDataSource,  UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ItemCollectionViewCell", for: indexPath) as? ItemCollectionViewCell {
@@ -111,6 +122,102 @@ extension CatalogViewController: UICollectionViewDataSource,  UICollectionViewDe
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 10
     }
+    
+    // MARK: pagination
+    
+    // size for loading view
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        if self.isLoading {
+            return CGSize.zero
+        } else {
+            return CGSize(width: collectionView.bounds.size.width, height: 55)
+        }
+    }
+    // set the reusable view in the CollectionView footer
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        if kind == UICollectionView.elementKindSectionFooter {
+            let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "loadingresuableviewid", for: indexPath) as! CollectionReusableView
+            loadingView = footerView
+            loadingView?.backgroundColor = UIColor.clear
+            return footerView
+        }
+        return UICollectionReusableView()
+    }
+
+    // start and stop the activityIndicator‘s animation when the footer appears and disappears
+    
+//    func collectionView(_ collectionView: UICollectionView, willDisplaySupplementaryView view: UICollectionReusableView, forElementKind elementKind: String, at indexPath: IndexPath) {
+//        if elementKind == UICollectionView.elementKindSectionFooter {
+//            self.loadingView?.activityIndicator.startAnimating()
+//        }
+//    }
+//    
+//    func collectionView(_ collectionView: UICollectionView, didEndDisplayingSupplementaryView view: UICollectionReusableView, forElementOfKind elementKind: String, at indexPath: IndexPath) {
+//           if elementKind == UICollectionView.elementKindSectionFooter {
+//               self.loadingView?.activityIndicator.stopAnimating()
+//           }
+//       }
+    
+    // load more data
+//
+//    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+//        if indexPath.row == catalogItem.count - 10 && self.isLoading {
+//            loadMoreData()
+//        }
+//    }
+//
+//    func loadMoreData() {
+//        if !self.isLoading {
+//            self.isLoading = true
+//            DispatchQueue.global().async {
+//                // fake background loading task for 2 seconds
+//                sleep(2)
+//
+//                // TODO: download more data
+//                DispatchQueue.main.async {
+//                    self.collectionView.reloadData()
+//                    self.isLoading = false
+//                }
+//            }
+//        }
+//    }
+    
+    func scrollViewWillBeginDragging (_ scrollView: UIScrollView) {
+        isLoading = false
+        self.loadingView?.activityIndicator.startAnimating()
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        self.loadingView?.activityIndicator.stopAnimating()
+        if ((collectionView.contentOffset.y + collectionView.frame.size.height) >= collectionView.contentSize.height) {
+            if !isLoading {
+                isLoading = true
+                self.pageNumber = self.pageNumber + 1
+                self.limit = self.limit + 20
+                self.offset = self.limit * self.pageNumber
+                self.service.getData(limit: "\(self.limit)", offset: "\(self.offset)")
+           
+            }
+        }
+    }
+    
+    
+    
+//    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+//        if indexPath.row == catalogItem.count - 2 {
+//            let offset = String(Int(self.offset)! + Int(self.limit)!)
+//            self.service.getData(offset: "\(offset)")
+//            self.service.completionHandler { [weak self] (items, status, message) in
+//                if status {
+//                    guard let self = self else {return}
+//                    guard let _items = items?.items else {return}
+//                self.catalogItem = _items
+//                    self.collectionView.reloadData()
+//                }
+//            }
+//        }
+//    }
 }
 
 //extension CatalogViewController: ViewControllerInput {
