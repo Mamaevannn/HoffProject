@@ -8,7 +8,7 @@
 import UIKit
 
 class CatalogViewController: UIViewController {
-
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
     var presenter: Presenter?
@@ -48,18 +48,18 @@ class CatalogViewController: UIViewController {
             if status {
                 guard let self = self else {return}
                 guard let _items = items?.items else {return}
-            self.catalogItem = _items
+                self.catalogItem = _items
                 self.collectionView.reloadData()
             }
         }
     }
-
+    
     // MARK: sorting options
     @IBOutlet weak var sortButton: UIButton!
     @IBAction func didTap(_ sender: UIButton) {
         showSortOptions()
     }
-
+    
     func showSortOptions() {
         let actionSheet = UIAlertController(title: .none, message: .none, preferredStyle: .actionSheet)
         actionSheet.addAction(UIAlertAction(title: "По популярности", style: .default, handler: { action in
@@ -105,7 +105,7 @@ extension CatalogViewController: UICollectionViewDataSource,  UICollectionViewDe
             cell.layer.shadowPath = UIBezierPath(rect: cell.bounds).cgPath
             cell.layer.masksToBounds = false
             
-        return cell
+            return cell
         } else {
             return UICollectionViewCell()
         }
@@ -123,7 +123,7 @@ extension CatalogViewController: UICollectionViewDataSource,  UICollectionViewDe
         return 10
     }
     
-    // MARK: pagination
+    // MARK: Pagination
     
     // size for loading view
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
@@ -144,44 +144,8 @@ extension CatalogViewController: UICollectionViewDataSource,  UICollectionViewDe
         }
         return UICollectionReusableView()
     }
-
-    // start and stop the activityIndicator‘s animation when the footer appears and disappears
     
-//    func collectionView(_ collectionView: UICollectionView, willDisplaySupplementaryView view: UICollectionReusableView, forElementKind elementKind: String, at indexPath: IndexPath) {
-//        if elementKind == UICollectionView.elementKindSectionFooter {
-//            self.loadingView?.activityIndicator.startAnimating()
-//        }
-//    }
-//    
-//    func collectionView(_ collectionView: UICollectionView, didEndDisplayingSupplementaryView view: UICollectionReusableView, forElementOfKind elementKind: String, at indexPath: IndexPath) {
-//           if elementKind == UICollectionView.elementKindSectionFooter {
-//               self.loadingView?.activityIndicator.stopAnimating()
-//           }
-//       }
     
-    // load more data
-//
-//    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-//        if indexPath.row == catalogItem.count - 10 && self.isLoading {
-//            loadMoreData()
-//        }
-//    }
-//
-//    func loadMoreData() {
-//        if !self.isLoading {
-//            self.isLoading = true
-//            DispatchQueue.global().async {
-//                // fake background loading task for 2 seconds
-//                sleep(2)
-//
-//                // TODO: download more data
-//                DispatchQueue.main.async {
-//                    self.collectionView.reloadData()
-//                    self.isLoading = false
-//                }
-//            }
-//        }
-//    }
     
     func scrollViewWillBeginDragging (_ scrollView: UIScrollView) {
         isLoading = false
@@ -189,46 +153,24 @@ extension CatalogViewController: UICollectionViewDataSource,  UICollectionViewDe
     }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        self.loadingView?.activityIndicator.stopAnimating()
+        
         if ((collectionView.contentOffset.y + collectionView.frame.size.height) >= collectionView.contentSize.height) {
             if !isLoading {
                 isLoading = true
-                self.pageNumber = self.pageNumber + 1
-                self.limit = self.limit + 20
-                self.offset = self.limit * self.pageNumber
-                self.service.getData(limit: "\(self.limit)", offset: "\(self.offset)")
-           
+                DispatchQueue.global().async {
+                    // fake background loading task for a second
+                    sleep(1)
+                    self.pageNumber = self.pageNumber + 1
+                    self.limit = self.limit + 20
+                    self.offset = self.limit * self.pageNumber
+                    self.service.getData(limit: "\(self.limit)", offset: "\(self.offset)")
+                    
+                }
             }
         }
+        
     }
     
-    
-    
-//    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-//        if indexPath.row == catalogItem.count - 2 {
-//            let offset = String(Int(self.offset)! + Int(self.limit)!)
-//            self.service.getData(offset: "\(offset)")
-//            self.service.completionHandler { [weak self] (items, status, message) in
-//                if status {
-//                    guard let self = self else {return}
-//                    guard let _items = items?.items else {return}
-//                self.catalogItem = _items
-//                    self.collectionView.reloadData()
-//                }
-//            }
-//        }
-//    }
 }
 
-//extension CatalogViewController: ViewControllerInput {
-//    func succesObtainProducts(products: Catalog) {
-//        self.catalog = products
-//        self.collectionView.reloadData()
-//    }
-//
-//    func failureObtainProducts(error: String) {
-//
-//    }
-//
-//
-//}
+

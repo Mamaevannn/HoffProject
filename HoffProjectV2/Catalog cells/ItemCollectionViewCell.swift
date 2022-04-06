@@ -29,7 +29,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
     }
 
     func setupCell(item: Catalog.Items) {
-        
+        theItem = item
         self.ratingView.rating = item.rating
         self.ratingView.text = "(\(item.numberOfReviews))"
         self.nameLBL.text = item.name
@@ -47,13 +47,15 @@ class ItemCollectionViewCell: UICollectionViewCell {
             self.specialOffer.text = "  Лучшая цена  "
             self.specialOffer.backgroundColor = #colorLiteral(red: 0.9917286038, green: 0.7743743062, blue: 0, alpha: 1)
             self.specialOffer.textColor = .white
+            self.specialOffer.layer.cornerRadius = 2
         } else if item.discount != 0 {
             self.specialOffer.text = "  -\(item.discount) %  "
             self.specialOffer.backgroundColor = #colorLiteral(red: 0.9568627451, green: 0, blue: 0, alpha: 1)
             self.specialOffer.textColor = .white
+            self.specialOffer.layer.cornerRadius = 2
     
         } else {
-            self.specialOffer.text = ""
+            self.specialOffer.text = .none
         }
         
         // image downloading
@@ -61,6 +63,23 @@ class ItemCollectionViewCell: UICollectionViewCell {
                               placeholderImage: UIImage(systemName: "photo"),
                               options: .continueInBackground,
                               completed: nil)
+        
+        if CatalogUserDefaults.shared.isFavorite(item: item) {
+            self.favoriteButton.setImage(#imageLiteral(resourceName: "fav"), for: .normal)
+        } else {
+            self.favoriteButton.setImage(#imageLiteral(resourceName: "notfav"), for: .normal)
+        }
+    }
+    
+    var theItem: Catalog.Items!
+   
+    @IBAction func didTapFavButton(_ sender: UIButton) {
+        let _ = CatalogUserDefaults.shared.addOrRemoveFavorite(item: theItem)
+        if CatalogUserDefaults.shared.isFavorite(item: theItem) {
+            self.favoriteButton.setImage(#imageLiteral(resourceName: "fav"), for: .normal)
+        } else {
+            self.favoriteButton.setImage(#imageLiteral(resourceName: "notfav"), for: .normal)
+        }
     }
 }
 

@@ -7,14 +7,14 @@
 
 import Foundation
 
-struct Catalog: Decodable {
+struct Catalog: Codable {
     var totalCount: Int
     var items: [Items]
     var relatedCategories: [RelatedCategories]
     var categoryName: String
     var categoryUrl: String
    
-    struct Items: Decodable {
+    struct Items: Codable {
         var id: String
         var name: String
         var image: String
@@ -33,18 +33,18 @@ struct Catalog: Decodable {
         var categoryId: String
         var categoryTitle: String
     }
-    struct Price: Decodable {
+    struct Price: Codable {
         var new: Int
         var old: Int
     }
     
-    struct RelatedCategories: Decodable {
+    struct RelatedCategories: Codable {
         var name: String
         var id: String
 
     }
     
-    struct Tags: Decodable {
+    struct Tags: Codable {
         var text: String? = ""
         var textColor: String? = ""
         var bgColor: String? = "" 

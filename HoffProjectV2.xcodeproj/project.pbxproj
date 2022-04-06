@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		AC11D7E227FD7E0800251CD0 /* CollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC11D7E027FD7E0800251CD0 /* CollectionReusableView.swift */; };
 		AC11D7E327FD7E0800251CD0 /* CollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC11D7E127FD7E0800251CD0 /* CollectionReusableView.xib */; };
+		AC11D7E927FDD95E00251CD0 /* CatalogUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC11D7E827FDD95E00251CD0 /* CatalogUserDefaults.swift */; };
 		ACDFFED427F8A3D9004F5703 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDFFED327F8A3D9004F5703 /* AppDelegate.swift */; };
 		ACDFFED627F8A3D9004F5703 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDFFED527F8A3D9004F5703 /* SceneDelegate.swift */; };
 		ACDFFEDB27F8A3D9004F5703 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACDFFED927F8A3D9004F5703 /* Main.storyboard */; };
@@ -30,6 +31,7 @@
 /* Begin PBXFileReference section */
 		AC11D7E027FD7E0800251CD0 /* CollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionReusableView.swift; sourceTree = "<group>"; };
 		AC11D7E127FD7E0800251CD0 /* CollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionReusableView.xib; sourceTree = "<group>"; };
+		AC11D7E827FDD95E00251CD0 /* CatalogUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogUserDefaults.swift; sourceTree = "<group>"; };
 		ACDFFED027F8A3D9004F5703 /* HoffProjectV2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HoffProjectV2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACDFFED327F8A3D9004F5703 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACDFFED527F8A3D9004F5703 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +63,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AC11D7E527FDB3BB00251CD0 /* Loading view */ = {
+			isa = PBXGroup;
+			children = (
+				AC11D7E027FD7E0800251CD0 /* CollectionReusableView.swift */,
+				AC11D7E127FD7E0800251CD0 /* CollectionReusableView.xib */,
+			);
+			path = "Loading view";
+			sourceTree = "<group>";
+		};
+		AC11D7E627FDB3E900251CD0 /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				ACDFFED327F8A3D9004F5703 /* AppDelegate.swift */,
+				ACDFFED527F8A3D9004F5703 /* SceneDelegate.swift */,
+				ACDFFEDE27F8A3DA004F5703 /* LaunchScreen.storyboard */,
+				ACDFFEDC27F8A3DA004F5703 /* Assets.xcassets */,
+			);
+			path = "Supporting files";
+			sourceTree = "<group>";
+		};
+		AC11D7E727FDB44700251CD0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				ACDFFED927F8A3D9004F5703 /* Main.storyboard */,
+				ACDFFEE727F8A412004F5703 /* CatalogViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AC11D7EA27FDD96300251CD0 /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				AC11D7E827FDD95E00251CD0 /* CatalogUserDefaults.swift */,
+			);
+			path = UserDefaults;
+			sourceTree = "<group>";
+		};
 		ACDFFEC727F8A3D9004F5703 = {
 			isa = PBXGroup;
 			children = (
@@ -80,31 +119,27 @@
 		ACDFFED227F8A3D9004F5703 /* HoffProjectV2 */ = {
 			isa = PBXGroup;
 			children = (
-				ACDFFEE927F8A4D9004F5703 /* CatalogCells */,
-				ACDFFED327F8A3D9004F5703 /* AppDelegate.swift */,
-				ACDFFED527F8A3D9004F5703 /* SceneDelegate.swift */,
-				ACDFFED927F8A3D9004F5703 /* Main.storyboard */,
-				ACDFFF0127FB985A004F5703 /* FiltersVell */,
-				ACDFFEE727F8A412004F5703 /* CatalogViewController.swift */,
+				AC11D7EA27FDD96300251CD0 /* UserDefaults */,
+				ACDFFEE927F8A4D9004F5703 /* Catalog cells */,
+				ACDFFF0127FB985A004F5703 /* Filters cell */,
+				AC11D7E527FDB3BB00251CD0 /* Loading view */,
+				AC11D7E727FDB44700251CD0 /* View */,
 				ACDFFEF027F8A792004F5703 /* Model */,
 				ACDFFEF327F8A7BE004F5703 /* Network */,
-				ACDFFEDC27F8A3DA004F5703 /* Assets.xcassets */,
-				ACDFFEDE27F8A3DA004F5703 /* LaunchScreen.storyboard */,
+				AC11D7E627FDB3E900251CD0 /* Supporting files */,
 				ACDFFEE127F8A3DA004F5703 /* Info.plist */,
-				AC11D7E027FD7E0800251CD0 /* CollectionReusableView.swift */,
-				AC11D7E127FD7E0800251CD0 /* CollectionReusableView.xib */,
 			);
 			path = HoffProjectV2;
 			sourceTree = "<group>";
 		};
-		ACDFFEE927F8A4D9004F5703 /* CatalogCells */ = {
+		ACDFFEE927F8A4D9004F5703 /* Catalog cells */ = {
 			isa = PBXGroup;
 			children = (
 				ACDFFEEA27F8A503004F5703 /* ItemCollectionViewCell.swift */,
 				ACDFFEEB27F8A503004F5703 /* ItemCollectionViewCell.xib */,
 				ACDFFEFA27F9A534004F5703 /* Presenter.swift */,
 			);
-			path = CatalogCells;
+			path = "Catalog cells";
 			sourceTree = "<group>";
 		};
 		ACDFFEF027F8A792004F5703 /* Model */ = {
@@ -124,12 +159,12 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
-		ACDFFF0127FB985A004F5703 /* FiltersVell */ = {
+		ACDFFF0127FB985A004F5703 /* Filters cell */ = {
 			isa = PBXGroup;
 			children = (
 				ACDFFEFF27FB984B004F5703 /* FiltersTableViewCell.swift */,
 			);
-			path = FiltersVell;
+			path = "Filters cell";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -218,6 +253,7 @@
 				ACDFFEE827F8A412004F5703 /* CatalogViewController.swift in Sources */,
 				ACDFFF0027FB984B004F5703 /* FiltersTableViewCell.swift in Sources */,
 				ACDFFEFB27F9A534004F5703 /* Presenter.swift in Sources */,
+				AC11D7E927FDD95E00251CD0 /* CatalogUserDefaults.swift in Sources */,
 				AC11D7E227FD7E0800251CD0 /* CollectionReusableView.swift in Sources */,
 				ACDFFF0327FC8E61004F5703 /* Sorting options.swift in Sources */,
 				ACDFFEEC27F8A504004F5703 /* ItemCollectionViewCell.swift in Sources */,
