@@ -21,7 +21,7 @@ struct Catalog: Codable {
         var prices: Price
         var discount: Int
         var isBestPrice: Bool
-        var tag: [Tags]?
+        var tag: [Tags]? 
         var isFavorite: Bool
         var articul: String
         var rating: Double
@@ -32,6 +32,12 @@ struct Catalog: Codable {
         var isAvailable: Bool
         var categoryId: String
         var categoryTitle: String
+        
+        struct Tags: Codable {
+            var text: String? = ""
+            var textColor: String? = ""
+            var bgColor: String? = ""
+        }
     }
     struct Price: Codable {
         var new: Int
@@ -44,11 +50,7 @@ struct Catalog: Codable {
 
     }
     
-    struct Tags: Codable {
-        var text: String? = ""
-        var textColor: String? = ""
-        var bgColor: String? = "" 
-    }
+
 }
 
 

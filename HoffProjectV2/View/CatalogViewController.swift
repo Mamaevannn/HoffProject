@@ -94,7 +94,7 @@ extension CatalogViewController: UICollectionViewDataSource,  UICollectionViewDe
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ItemCollectionViewCell", for: indexPath) as? ItemCollectionViewCell {
             let item = catalogItem[indexPath.row]
-            cell.setupCell(item: item)
+            cell.setupCell(item: item, indexPath: indexPath)
             cell.backgroundColor = .white
             cell.layer.shadowOffset = CGSize(width: 0, height: 2)
             cell.layer.shadowOpacity = 1

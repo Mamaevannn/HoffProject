@@ -31,6 +31,11 @@
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="2"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99 999 Р" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2iY-ka-TIh">
                         <rect key="frame" x="10" y="160" width="56" height="17"/>
@@ -57,7 +62,7 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="12" id="i2N-qq-etL"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="10"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -163,6 +168,7 @@
                 <outlet property="specialOffer" destination="waE-af-dtm" id="sZu-Ld-Q9w"/>
                 <outlet property="statusLbl" destination="ztq-gP-7Bm" id="OEb-WF-Upw"/>
                 <outlet property="tagLbl" destination="kp2-Ls-Js7" id="kAK-09-xmW"/>
+                <outlet property="tagPoint" destination="mBh-WF-vAx" id="U1M-gt-xkb"/>
             </connections>
             <point key="canvasLocation" x="-107.24637681159422" y="26.450892857142858"/>
         </collectionViewCell>
