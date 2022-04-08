@@ -54,6 +54,10 @@ class CatalogViewController: UIViewController {
         }
     }
     
+    // MARK: category options
+    
+   
+    
     // MARK: sorting options
     @IBOutlet weak var sortButton: UIButton!
     @IBAction func didTap(_ sender: UIButton) {
@@ -63,23 +67,27 @@ class CatalogViewController: UIViewController {
     func showSortOptions() {
         let actionSheet = UIAlertController(title: .none, message: .none, preferredStyle: .actionSheet)
         actionSheet.addAction(UIAlertAction(title: "По популярности", style: .default, handler: { action in
-            self.sortButton.titleLabel?.text = "По популярности"
+            self.sortButton.setTitle("По популярности", for: .normal)
             self.service.getData(sortBy: "popular", sortType: "desc")
+            self.collectionView.contentOffset = CGPoint(x: 0, y: 0) // scrolling to top when sort option changed
         }))
         actionSheet.addAction(UIAlertAction(title: "По возрастанию цены", style: .default, handler: { action in
             // insert action
-            self.sortButton.titleLabel?.text = "По возрастанию цены"
+            self.sortButton.setTitle("По возрастанию цены", for: .normal)
             self.service.getData(sortBy: "price", sortType: "asc")
+            self.collectionView.contentOffset = CGPoint(x: 0, y: 0)
         }))
         actionSheet.addAction(UIAlertAction(title: "По убыванию цены", style: .default, handler: { action in
             // insert action
-            self.sortButton.titleLabel?.text = "По убыванию цены"
+            self.sortButton.setTitle("По убыванию цены", for: .normal)
             self.service.getData( sortBy: "price", sortType: "desc")
+            self.collectionView.contentOffset = CGPoint(x: 0, y: 0)
         }))
         actionSheet.addAction(UIAlertAction(title: "По скидкам", style: .default, handler: { action in
             // insert action
-            self.sortButton.titleLabel?.text = "По скидкам"
+            self.sortButton.setTitle("По скидкам", for: .normal)
             self.service.getData(sortBy: "discount", sortType: "desc")
+            self.collectionView.contentOffset = CGPoint(x: 0, y: 0)
         }))
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { action in
         }))

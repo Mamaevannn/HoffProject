@@ -10,6 +10,8 @@
 		AC11D7E227FD7E0800251CD0 /* CollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC11D7E027FD7E0800251CD0 /* CollectionReusableView.swift */; };
 		AC11D7E327FD7E0800251CD0 /* CollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC11D7E127FD7E0800251CD0 /* CollectionReusableView.xib */; };
 		AC11D7E927FDD95E00251CD0 /* CatalogUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC11D7E827FDD95E00251CD0 /* CatalogUserDefaults.swift */; };
+		AC11D7EC2800C6E500251CD0 /* CategoriesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC11D7EB2800C6E500251CD0 /* CategoriesCollectionViewCell.swift */; };
+		AC11D7EE2800CF9500251CD0 /* CategoriesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC11D7ED2800CF9500251CD0 /* CategoriesTableViewCell.swift */; };
 		ACDFFED427F8A3D9004F5703 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDFFED327F8A3D9004F5703 /* AppDelegate.swift */; };
 		ACDFFED627F8A3D9004F5703 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDFFED527F8A3D9004F5703 /* SceneDelegate.swift */; };
 		ACDFFEDB27F8A3D9004F5703 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACDFFED927F8A3D9004F5703 /* Main.storyboard */; };
@@ -32,6 +34,8 @@
 		AC11D7E027FD7E0800251CD0 /* CollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionReusableView.swift; sourceTree = "<group>"; };
 		AC11D7E127FD7E0800251CD0 /* CollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionReusableView.xib; sourceTree = "<group>"; };
 		AC11D7E827FDD95E00251CD0 /* CatalogUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogUserDefaults.swift; sourceTree = "<group>"; };
+		AC11D7EB2800C6E500251CD0 /* CategoriesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesCollectionViewCell.swift; sourceTree = "<group>"; };
+		AC11D7ED2800CF9500251CD0 /* CategoriesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesTableViewCell.swift; sourceTree = "<group>"; };
 		ACDFFED027F8A3D9004F5703 /* HoffProjectV2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HoffProjectV2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACDFFED327F8A3D9004F5703 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACDFFED527F8A3D9004F5703 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -100,6 +104,15 @@
 			path = UserDefaults;
 			sourceTree = "<group>";
 		};
+		AC11D7EF2800D1F000251CD0 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				AC11D7EB2800C6E500251CD0 /* CategoriesCollectionViewCell.swift */,
+				AC11D7ED2800CF9500251CD0 /* CategoriesTableViewCell.swift */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
 		ACDFFEC727F8A3D9004F5703 = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +132,7 @@
 		ACDFFED227F8A3D9004F5703 /* HoffProjectV2 */ = {
 			isa = PBXGroup;
 			children = (
+				AC11D7EF2800D1F000251CD0 /* Categories */,
 				AC11D7EA27FDD96300251CD0 /* UserDefaults */,
 				ACDFFEE927F8A4D9004F5703 /* Catalog cells */,
 				ACDFFF0127FB985A004F5703 /* Filters cell */,
@@ -256,10 +270,12 @@
 				AC11D7E927FDD95E00251CD0 /* CatalogUserDefaults.swift in Sources */,
 				AC11D7E227FD7E0800251CD0 /* CollectionReusableView.swift in Sources */,
 				ACDFFF0327FC8E61004F5703 /* Sorting options.swift in Sources */,
+				AC11D7EC2800C6E500251CD0 /* CategoriesCollectionViewCell.swift in Sources */,
 				ACDFFEEC27F8A504004F5703 /* ItemCollectionViewCell.swift in Sources */,
 				ACDFFED427F8A3D9004F5703 /* AppDelegate.swift in Sources */,
 				ACDFFEF227F8A7BA004F5703 /* Network Service.swift in Sources */,
 				ACDFFED627F8A3D9004F5703 /* SceneDelegate.swift in Sources */,
+				AC11D7EE2800CF9500251CD0 /* CategoriesTableViewCell.swift in Sources */,
 				ACDFFEEF27F8A78E004F5703 /* CatalogModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

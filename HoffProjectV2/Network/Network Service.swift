@@ -16,11 +16,11 @@ class NetworkService {
     typealias itemCallBack = (_ items: Catalog?, _ status: Bool, _ message: String) -> Void
     var callBack: itemCallBack?
     
-     func getData(categoryId: String = "320", sortBy: String = "popular", sortType: String = "desc", limit: String = "20", offset: String = "0") {
+     func getData(categoryId: String = "1255", sortBy: String = "popular", sortType: String = "desc", limit: String = "20", offset: String = "0") {
 
        var urlComponents = URLComponents()
        urlComponents.scheme = "https"
-       urlComponents.host = "hoff.ru"
+       urlComponents.host = "dev-re-1.hoff.ru"
        urlComponents.path = "/api/v2/get_products_new"
        urlComponents.queryItems = [
            URLQueryItem(name: "category_id", value: categoryId),
@@ -43,9 +43,12 @@ class NetworkService {
                 return}
             do{
              let response = try JSONDecoder().decode(Catalog.self, from: data)
-                self.callBack?(response, true, "")            }
+                self.callBack?(response, true, "")
+//                print(response)
+            }
             catch {
                 self.callBack?(nil, false, error.localizedDescription)
+                print(error)
             }
         }
    }

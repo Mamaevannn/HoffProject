@@ -135,15 +135,77 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="catgoeires" rowHeight="73" id="a2A-5N-8BF">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="categories" rowHeight="30" id="a2A-5N-8BF" customClass="CategoriesTableViewCell" customModule="HoffProjectV2" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="84" width="414" height="84"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="a2A-5N-8BF" id="tVI-FC-RAR">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="84"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Yql-f3-u1W">
+                                                    <rect key="frame" x="15" y="0.0" width="399" height="84"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="Yql-f3-u1W" secondAttribute="height" multiplier="69:14" constant="-15" id="TzI-Cf-8nN"/>
+                                                    </constraints>
+                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Uip-nw-pxw">
+                                                        <size key="itemSize" width="157" height="57"/>
+                                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    </collectionViewFlowLayout>
+                                                    <cells>
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="categoriesCell" id="8Ho-MT-Zak" customClass="CategoriesCollectionViewCell" customModule="HoffProjectV2" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="13.5" width="157" height="57"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="6e1-Ah-X2u">
+                                                                <rect key="frame" x="0.0" y="0.0" width="157" height="57"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <subviews>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tkx-Mi-7Bi">
+                                                                        <rect key="frame" x="13.5" y="11" width="130" height="35"/>
+                                                                        <color key="backgroundColor" red="0.94509803920000002" green="0.95686274510000002" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" constant="130" id="k5M-0B-2Y4"/>
+                                                                            <constraint firstAttribute="height" constant="35" id="rZM-n1-f0m"/>
+                                                                        </constraints>
+                                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <state key="normal" title="Button"/>
+                                                                        <buttonConfiguration key="configuration" style="plain" title="Button">
+                                                                            <fontDescription key="titleFontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                                                        </buttonConfiguration>
+                                                                        <connections>
+                                                                            <action selector="categoryChanged:" destination="a2A-5N-8BF" eventType="touchUpInside" id="wlo-7s-hyn"/>
+                                                                        </connections>
+                                                                    </button>
+                                                                </subviews>
+                                                                <constraints>
+                                                                    <constraint firstItem="tkx-Mi-7Bi" firstAttribute="centerY" secondItem="6e1-Ah-X2u" secondAttribute="centerY" id="Fjq-Ax-VRA"/>
+                                                                    <constraint firstItem="tkx-Mi-7Bi" firstAttribute="centerX" secondItem="6e1-Ah-X2u" secondAttribute="centerX" id="N1f-4w-AJ3"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="tkx-Mi-7Bi" secondAttribute="trailing" constant="13.5" id="OXU-zv-ICh"/>
+                                                                    <constraint firstItem="tkx-Mi-7Bi" firstAttribute="leading" secondItem="6e1-Ah-X2u" secondAttribute="leading" constant="13.5" id="xZS-VK-aid"/>
+                                                                </constraints>
+                                                            </collectionViewCellContentView>
+                                                            <size key="customSize" width="157" height="57"/>
+                                                            <connections>
+                                                                <outlet property="categoriesLbl" destination="tkx-Mi-7Bi" id="Q6g-cs-nSs"/>
+                                                            </connections>
+                                                        </collectionViewCell>
+                                                    </cells>
+                                                </collectionView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="Yql-f3-u1W" secondAttribute="bottom" id="T8F-vT-rcN"/>
+                                                <constraint firstAttribute="trailing" secondItem="Yql-f3-u1W" secondAttribute="trailing" id="jV9-6n-PJV"/>
+                                                <constraint firstItem="Yql-f3-u1W" firstAttribute="top" secondItem="tVI-FC-RAR" secondAttribute="top" id="xJo-Wq-aE4"/>
+                                                <constraint firstItem="Yql-f3-u1W" firstAttribute="leading" secondItem="tVI-FC-RAR" secondAttribute="leading" constant="15" id="xlS-QO-PB9"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                                        <connections>
+                                            <outlet property="CategoriesCollectionView" destination="Yql-f3-u1W" id="kbB-8r-Cob"/>
+                                        </connections>
                                     </tableViewCell>
                                 </subviews>
                             </stackView>
