@@ -34,6 +34,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
         theItem = item
         self.ratingView.rating = item.rating
         self.ratingView.text = "(\(item.numberOfReviews))"
+        self.ratingView.settings.fillMode = .precise
         self.nameLBL.text = item.name
         self.statusLbl.text = item.statusText
        
@@ -62,7 +63,10 @@ class ItemCollectionViewCell: UICollectionViewCell {
         }
         
         // image downloading
-        itemImage.sd_setImage(with: URL(string: item.image),
+        var str = item.image ?? ""
+                let range = str.index(str.startIndex, offsetBy: 8)..<str.index(str.startIndex, offsetBy: 17)
+                str.removeSubrange(range)
+        itemImage.sd_setImage(with: URL(string: str),
                               placeholderImage: UIImage(systemName: "photo"),
                               options: .continueInBackground,
                               completed: nil)

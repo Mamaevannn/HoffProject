@@ -12,7 +12,7 @@ class CategoriesTableViewCell: UITableViewCell {
     let service = NetworkService()
     private var categories: [Catalog.RelatedCategories] = []
     @IBOutlet weak var CategoriesCollectionView: UICollectionView!
-    
+   
     override func awakeFromNib() {
         super.awakeFromNib()
         service.getData(sortBy: "popular", sortType: "desc")
@@ -33,12 +33,11 @@ class CategoriesTableViewCell: UITableViewCell {
 
     }
     var indexpath = IndexPath(item: 0, section: 0)
+    weak var categoryDelegate: CategoryDelegate?
     
     @IBAction func categoryChanged(_ sender: UIButton) {
-        self.service.getData(categoryId: categories[indexpath.row].id)
-        
+        categoryDelegate?.setData(categoryId: categories[indexpath.row].id)
     }
-    
     
 }
 

@@ -9,6 +9,7 @@ import UIKit
 
 class CatalogViewController: UIViewController {
     
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
     var presenter: Presenter?
@@ -21,6 +22,8 @@ class CatalogViewController: UIViewController {
     var isLoading = false
     var didEndReached = false
     var loadingView: CollectionReusableView?
+    var categoriesCell: CategoriesTableViewCell?
+    var startId = "1225"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +37,8 @@ class CatalogViewController: UIViewController {
         // register activityIndicator
         let loadingReusableNib = UINib(nibName: "CollectionReusableView", bundle: nil)
         self.collectionView.register(loadingReusableNib, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "loadingresuableviewid")
+        self.categoriesCell?.categoryDelegate = self
+        
     }
     
     override func viewDidLayoutSubviews() {
@@ -178,7 +183,29 @@ extension CatalogViewController: UICollectionViewDataSource,  UICollectionViewDe
         }
         
     }
+}
+
+extension CatalogViewController: CategoryDelegate {
     
+    func updateData(){
+        self.service.getData(categoryId: startId )
+        self.service.completionHandler { [weak self] (items, status, message) in
+            if status {
+                guard let self = self else {return}
+                guard let _items = items?.items else {return}
+                self.catalogItem = _items
+                self.collectionView.reloadData()
+            }
+    }
+    }
+    
+    func setData(categoryId: String) {
+        startId = categoryId
+//        catalogItem = []
+//        collectionView.reloadData()
+        updateData()
+        
+    }
 }
 
 

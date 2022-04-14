@@ -171,11 +171,11 @@
                                                                         </constraints>
                                                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <state key="normal" title="Button"/>
-                                                                        <buttonConfiguration key="configuration" style="plain" title="Button">
+                                                                        <buttonConfiguration key="configuration" style="plain" title="Button" titleAlignment="center">
                                                                             <fontDescription key="titleFontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                                                         </buttonConfiguration>
                                                                         <connections>
-                                                                            <action selector="categoryChanged:" destination="a2A-5N-8BF" eventType="touchUpInside" id="wlo-7s-hyn"/>
+                                                                            <action selector="categoryChanged:" destination="a2A-5N-8BF" eventType="touchUpInside" id="7yR-La-Oz2"/>
                                                                         </connections>
                                                                     </button>
                                                                 </subviews>
