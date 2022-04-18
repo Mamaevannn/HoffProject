@@ -35,6 +35,8 @@ class CategoriesTableViewCell: UITableViewCell {
     var indexpath = IndexPath(item: 0, section: 0)
     weak var categoryDelegate: CategoryDelegate?
     
+    
+    // TODO: что-то не так с делегатами 
     @IBAction func categoryChanged(_ sender: UIButton) {
         categoryDelegate?.setData(categoryId: categories[indexpath.row].id)
     }

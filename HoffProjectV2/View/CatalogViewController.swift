@@ -12,7 +12,7 @@ class CatalogViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var presenter: Presenter?
+    var presenter: CatalogPresenter?
     var catalogItem: [Catalog.Items] = []
     let service = NetworkService()
     var catalog: Catalog?
@@ -166,6 +166,9 @@ extension CatalogViewController: UICollectionViewDataSource,  UICollectionViewDe
     }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        
+        // ПОЧЕМУ НЕ РАБОТАЕТ
+       // presenter?.startPagination(collectionView: collectionView)
         
         if ((collectionView.contentOffset.y + collectionView.frame.size.height) >= collectionView.contentSize.height) {
             if !isLoading {

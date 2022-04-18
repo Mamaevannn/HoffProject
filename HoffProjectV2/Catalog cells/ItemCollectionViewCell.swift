@@ -8,13 +8,11 @@
 import UIKit
 import SDWebImage
 import Cosmos
-import SwiftUI
+//import SwiftUI
 
 class ItemCollectionViewCell: UICollectionViewCell {
 
-    
     @IBOutlet weak var itemImage: UIImageView!
-    
     @IBOutlet weak var nameLBL: UILabel!
     @IBOutlet weak var statusLbl: UILabel!
     @IBOutlet weak var tagLbl: UILabel! 
@@ -26,6 +24,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var tagPoint: UIView!
     
     var indexpath = IndexPath(item: 0, section: 0)
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -63,7 +62,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
         }
         
         // image downloading
-        var str = item.image ?? ""
+        var str = item.image
                 let range = str.index(str.startIndex, offsetBy: 8)..<str.index(str.startIndex, offsetBy: 17)
                 str.removeSubrange(range)
         itemImage.sd_setImage(with: URL(string: str),
@@ -104,7 +103,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
     }
 }
 
-// for data formatting
+// extension for data formatting
 extension Formatter {
     static let withSeperator: NumberFormatter = {
         let formatter = NumberFormatter()
@@ -118,7 +117,8 @@ extension Numeric {
     var formattedWithSeperator: String { Formatter.withSeperator.string(for: self) ?? ""}
 }
 
-// to convert hex to rgb
+
+// extension to convert hex to rgb
 extension UIColor {
     public convenience init?(hex: String) {
         let r, g, b, a: CGFloat
