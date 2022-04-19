@@ -43,12 +43,7 @@ var view: ViewControllerInput?
     init(view: ViewControllerInput) {
         self.view = view
     }
-    
- 
-    
 }
-
-
 
 protocol ViewControllerInput {
     func succesObtainProducts(products: Catalog)

@@ -22,8 +22,9 @@ class CatalogViewController: UIViewController {
     var isLoading = false
     var didEndReached = false
     var loadingView: CollectionReusableView?
-    var categoriesCell: CategoriesTableViewCell?
+    //    var categoriesCell: CategoriesTableViewCell?
     var startId = "1225"
+    @IBOutlet weak var categoriesCell: CategoriesTableViewCell!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,12 +62,14 @@ class CatalogViewController: UIViewController {
     
     // MARK: category options
     
-   
+    
     
     // MARK: sorting options
     @IBOutlet weak var sortButton: UIButton!
+    
     @IBAction func didTap(_ sender: UIButton) {
         showSortOptions()
+        
     }
     
     func showSortOptions() {
@@ -168,7 +171,7 @@ extension CatalogViewController: UICollectionViewDataSource,  UICollectionViewDe
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         
         // ПОЧЕМУ НЕ РАБОТАЕТ
-       // presenter?.startPagination(collectionView: collectionView)
+        // presenter?.startPagination(collectionView: collectionView)
         
         if ((collectionView.contentOffset.y + collectionView.frame.size.height) >= collectionView.contentSize.height) {
             if !isLoading {
@@ -199,13 +202,11 @@ extension CatalogViewController: CategoryDelegate {
                 self.catalogItem = _items
                 self.collectionView.reloadData()
             }
-    }
+        }
     }
     
     func setData(categoryId: String) {
         startId = categoryId
-//        catalogItem = []
-//        collectionView.reloadData()
         updateData()
         
     }

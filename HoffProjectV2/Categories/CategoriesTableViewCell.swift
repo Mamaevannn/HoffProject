@@ -37,8 +37,16 @@ class CategoriesTableViewCell: UITableViewCell {
     
     
     // TODO: что-то не так с делегатами 
-    @IBAction func categoryChanged(_ sender: UIButton) {
-        categoryDelegate?.setData(categoryId: categories[indexpath.row].id)
+   
+    
+//    @IBAction func categoryChanged(_ sender: UIButton) {
+//        categoryDelegate?.setData(categoryId: categories[indexpath.row].id)
+//    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+       print("tap")
+        categoryDelegate?.setData(categoryId: categories[indexPath.row].id)
+
     }
     
 }

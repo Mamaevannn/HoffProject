@@ -162,33 +162,33 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="157" height="57"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tkx-Mi-7Bi">
-                                                                        <rect key="frame" x="13.5" y="11" width="130" height="35"/>
-                                                                        <color key="backgroundColor" red="0.94509803920000002" green="0.95686274510000002" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UCe-RA-dvu">
+                                                                        <rect key="frame" x="13.5" y="13" width="130" height="31"/>
                                                                         <constraints>
-                                                                            <constraint firstAttribute="width" constant="130" id="k5M-0B-2Y4"/>
-                                                                            <constraint firstAttribute="height" constant="35" id="rZM-n1-f0m"/>
+                                                                            <constraint firstAttribute="height" constant="50" id="Xa6-4p-Yet"/>
+                                                                            <constraint firstAttribute="width" constant="130" id="bsf-oP-rfS"/>
                                                                         </constraints>
-                                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                        <state key="normal" title="Button"/>
-                                                                        <buttonConfiguration key="configuration" style="plain" title="Button" titleAlignment="center">
-                                                                            <fontDescription key="titleFontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
-                                                                        </buttonConfiguration>
-                                                                        <connections>
-                                                                            <action selector="categoryChanged:" destination="a2A-5N-8BF" eventType="touchUpInside" id="7yR-La-Oz2"/>
-                                                                        </connections>
-                                                                    </button>
+                                                                        <attributedString key="attributedText">
+                                                                            <fragment content="  Label  ">
+                                                                                <attributes>
+                                                                                    <font key="NSFont" metaFont="menu" size="14"/>
+                                                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                                </attributes>
+                                                                            </fragment>
+                                                                        </attributedString>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
                                                                 </subviews>
                                                                 <constraints>
-                                                                    <constraint firstItem="tkx-Mi-7Bi" firstAttribute="centerY" secondItem="6e1-Ah-X2u" secondAttribute="centerY" id="Fjq-Ax-VRA"/>
-                                                                    <constraint firstItem="tkx-Mi-7Bi" firstAttribute="centerX" secondItem="6e1-Ah-X2u" secondAttribute="centerX" id="N1f-4w-AJ3"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="tkx-Mi-7Bi" secondAttribute="trailing" constant="13.5" id="OXU-zv-ICh"/>
-                                                                    <constraint firstItem="tkx-Mi-7Bi" firstAttribute="leading" secondItem="6e1-Ah-X2u" secondAttribute="leading" constant="13.5" id="xZS-VK-aid"/>
+                                                                    <constraint firstItem="UCe-RA-dvu" firstAttribute="leading" secondItem="6e1-Ah-X2u" secondAttribute="leading" constant="13.5" id="04v-dq-MY6"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="UCe-RA-dvu" secondAttribute="bottom" constant="13" id="0Yb-cy-6Lw"/>
+                                                                    <constraint firstItem="UCe-RA-dvu" firstAttribute="top" secondItem="6e1-Ah-X2u" secondAttribute="top" constant="13" id="Dma-7m-Zwg"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="UCe-RA-dvu" secondAttribute="trailing" constant="13.5" id="mkm-yp-axG"/>
                                                                 </constraints>
                                                             </collectionViewCellContentView>
                                                             <size key="customSize" width="157" height="57"/>
                                                             <connections>
-                                                                <outlet property="categoriesLbl" destination="tkx-Mi-7Bi" id="Q6g-cs-nSs"/>
+                                                                <outlet property="categoriesLbl" destination="UCe-RA-dvu" id="sPW-1S-nvs"/>
                                                             </connections>
                                                         </collectionViewCell>
                                                     </cells>
@@ -227,6 +227,7 @@
                     <navigationItem key="navigationItem" title="Угловые диваны" id="YNw-Ey-yYC"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="categoriesCell" destination="a2A-5N-8BF" id="KY3-78-lUn"/>
                         <outlet property="collectionView" destination="DaW-Lu-bvV" id="5Z0-7J-uqL"/>
                         <outlet property="sortButton" destination="pFw-OJ-4RR" id="oYl-Wb-3IS"/>
                     </connections>
